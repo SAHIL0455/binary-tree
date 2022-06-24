@@ -9,6 +9,22 @@ public class BinaryTree<T extends Comparable> {
         binaryTree.addElementInBinary(20);
         binaryTree.addElementInBinary(10);
         binaryTree.preorder(binaryTree.head);
+        System.out.println();
+        System.out.println("Print the tbinary tree in preorder");
+        binaryTree.addElementInBinary(56);
+        binaryTree.addElementInBinary(30);
+        binaryTree.addElementInBinary(22);
+        binaryTree.addElementInBinary(40);
+        binaryTree.addElementInBinary(11);
+        binaryTree.addElementInBinary(3);
+        binaryTree.addElementInBinary(16);
+        binaryTree.addElementInBinary(70);
+        binaryTree.addElementInBinary(60);
+        binaryTree.addElementInBinary(95);
+        binaryTree.addElementInBinary(65);
+        binaryTree.addElementInBinary(63);
+        binaryTree.addElementInBinary(67);
+        binaryTree.preorder(binaryTree.head);
     }
 
     Node head;
