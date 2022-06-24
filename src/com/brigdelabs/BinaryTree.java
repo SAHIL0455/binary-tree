@@ -1,5 +1,7 @@
 package com.brigdelabs;
 
+import java.util.Scanner;
+
 public class BinaryTree<T extends Comparable> {
 
     public static void main(String[] args) {
@@ -10,7 +12,7 @@ public class BinaryTree<T extends Comparable> {
         binaryTree.addElementInBinary(10);
         binaryTree.preorder(binaryTree.head);
         System.out.println();
-        System.out.println("Print the tbinary tree in preorder");
+        System.out.println("Print the binary tree in preorder");
         binaryTree.addElementInBinary(56);
         binaryTree.addElementInBinary(30);
         binaryTree.addElementInBinary(22);
@@ -25,9 +27,19 @@ public class BinaryTree<T extends Comparable> {
         binaryTree.addElementInBinary(63);
         binaryTree.addElementInBinary(67);
         binaryTree.preorder(binaryTree.head);
+        System.out.println();
+        System.out.println("Enter the Number to Search");
+        int number = scanner.nextInt();
+        binaryTree.searchElement(binaryTree.head, number);
+        if (flag == 1) {
+            System.out.println(number+" is Present in Tree");
+        } else {
+            System.out.println(number+" is Absent in Tree");
+        }
     }
-
+    static Scanner scanner = new Scanner(System.in);
     Node head;
+    static int flag;
 
     public void addElementInBinary(T key) {
         this.head = this.addRecursive(head, key);
@@ -48,7 +60,7 @@ public class BinaryTree<T extends Comparable> {
         return head;
     }
 
-    public static void preorder(Node node) {
+    public void preorder(Node node) {
         System.out.print(node.data + " ");
 
         if (node.right != null) {
@@ -59,4 +71,16 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
+    public void searchElement(Node node, T key) {
+        if (node.data == key) {
+            flag = 1;
+            return;
+        }
+        if (node.right != null) {
+            searchElement(node.right, key);
+        }
+        if (node.left != null) {
+            searchElement(node.left, key);
+        }
+    }
 }
